@@ -15,7 +15,6 @@ python version and modules used during development of the application
   * configparser
   * distutils.util
   * podgen 1.0.0
-  * taglib 0.3.6+dfsg-2build7
   * pytz 2018.5
   * lxml 4.2.5
 
@@ -54,4 +53,50 @@ name = Name of your audio book
 explicit = False # (or True if you like)
 description = Short description of the podcast
 image = podcast_image_filename.jpeg
+```
+
+## command line options
+
+The --directory option is always required. The --server option is always
+required when creating a podcast, can be omitted when only creating the
+overview page.
+
+```
+usage: audiobpot.py [-h] [-c] [-p] [-o] [-d DIRECTORY] [--protocol PROTOCOL]
+                    [-s SERVER] [-r PODCASTROOT] [-m MEDIASUBDIR] [-i INIFILE]
+                    [--rssxslt RSSXSLT] [--overviewxslt OVERVIEWXSLT]
+                    [--indexfile INDEXFILE] [-v]
+
+Create static podcasts from audio book audio files (see README.md for detailed
+information)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c, --collection      (re-)create podcast collection creation (all sub-
+                        directories visited)
+  -p, --podcast         create a single static podcast
+  -o, --overview        create overview index file of collection
+  -d DIRECTORY, --directory DIRECTORY
+                        path of directory
+  --protocol PROTOCOL   data transfer protocol (default http)
+  -s SERVER, --server SERVER
+                        server name or ip
+  -r PODCASTROOT, --podcastroot PODCASTROOT
+                        server root directory (default '')
+  -m MEDIASUBDIR, --mediadir MEDIASUBDIR
+                        subdir for media files in podcast directory (default
+                        media)
+  -i INIFILE, --inifile INIFILE
+                        ini file in podcast directory (default podcast.ini)
+  --rssxslt RSSXSLT     xslt to create podcast website from rss feed (default
+                        xslt/rss.xslt)
+  --overviewxslt OVERVIEWXSLT
+                        xslt to create podcast overview website from rss feeds
+                        (default xslt/overview.xslt)
+  --indexfile INDEXFILE
+                        html indexfile filename (default index.html)
+  -v, --verbose         create verbose debugging output
+
+2018, Robert Schneider
+
 ```
