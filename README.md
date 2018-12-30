@@ -2,6 +2,11 @@
 
 AudioBPot your personal "Audio Book Podcast Feed Creator Robot"
 
+Sick of listening to audio books in your local mp3 player when podcast players
+are so good at remembering the position you stopped playing? This python script
+creates a static podcast feed to be served locally in your WiFi by any
+available web server in your local network.
+
 ## python package requirements
 
 python version and modules used during development of the application
