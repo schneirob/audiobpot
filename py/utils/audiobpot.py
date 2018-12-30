@@ -164,26 +164,26 @@ class AudioBPot():
         self.mediafiles.sort()
 
         self.podcast = Podcast()
-        self.podcast.name = self.podcast_name
-        self.podcast.description = self.podcast_description
-        self.podcast.website = self.podcasturl
+        self.podcast.name = str(self.podcast_name)
+        self.podcast.description = str(self.podcast_description)
+        self.podcast.website = str(self.podcasturl)
         self.podcast.explicit = self.podcast_explicit
         if self.podcast_image:
-            self.podcast.image = self.podcast_imageurl
-        self.podcast.feed_url = self.feedurl
+            self.podcast.image = str(self.podcast_imageurl)
+        self.podcast.feed_url = str(self.feedurl)
 
         count = 0
         for media in self.mediafiles:
             count += 1
             episode = self.podcast.add_episode()
-            episode.title = os.path.splitext(os.path.basename(media))[0].encode(
-                    encoding="ascii",errors="xmlcharrefreplace")
-            episode.subtitle = os.path.splitext(os.path.basename(media))[0].encode(
-                    encoding="ascii",errors="xmlcharrefreplace")
-            episode.summary = (self.podcast_description +
-                    "\n<br/>\n" + "media " + str(count) + "\n<br/>\n").encode(
-                    encoding="ascii",errors="xmlcharrefreplace") + \
-                             episode.title
+            # episode.title = os.path.splitext(os.path.basename(media))[0].encode(
+            #         encoding="ascii",errors="xmlcharrefreplace")
+            episode.title = str(os.path.splitext(os.path.basename(media))[0])
+            episode.subtitle = str(os.path.splitext(os.path.basename(media))[0])
+            episode.summary = str(self.podcast_description) + \
+                              "\n<br/>\n" + str(count) + \
+                              " media files \n<br/>\n" + \
+                             str(episode.title)
             episode.publication_date = pytz.utc.localize(
                                             datetime.utcfromtimestamp(
                                                 os.path.getmtime(
