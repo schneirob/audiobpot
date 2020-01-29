@@ -33,11 +33,18 @@ correct order.
 
 If you need to recreate the modification order, one simple method is, to use filenames that sort in the wanted order and re-touch the files.
 
+While at it, remove spaces from filenames.
+
 ```bash
-a=100
+for file in *.mp3
+do
+	mv "$file" $(echo "$file" | sed 's/ /_/g')
+done
+
+let a=1000
 for file in $(echo *.mp3 | sort)
 do
-	touch -d "$a hours ago" $file
+	touch -d "$a hours ago" "$file"
 	let a=$a-1
 done
 ```
