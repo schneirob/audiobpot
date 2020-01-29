@@ -88,7 +88,9 @@ class FeedExtractor():
                         minutes=int(td[0]), seconds=int(td[1]))
             if len(td) == 3:
                 self.duration += datetime.timedelta(
-                        hours=td[0], minutes=int(td[1]), seconds=int(td[2]))
+                        hours=int(td[0]),
+                        minutes=int(td[1]),
+                        seconds=int(td[2]))
         self.log.debug("Duration: " + str(self.duration))
         self.log.debug("Media files: " + str(self.mediacount))
 
