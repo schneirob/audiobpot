@@ -88,7 +88,7 @@ class AudioBPot():
             return
         self.log.debug("Media directory: " + self.mediasubdir)
 
-        if self.podcastroot is "":
+        if self.podcastroot == "":
             self.baseurl = self.protocol + "://" + \
                            self.server
         else:
